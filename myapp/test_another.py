@@ -1,14 +1,17 @@
 import pytest
 import json
 import math
+import requests
+from django.test import TestCase
+from rest_framework import status
 
-@pytest.mark.mathing
+
+
 def test_sqrt():
-    num = 25
-    assert math.sqrt(num) == 5
+   num = 25
+   assert math.sqrt(num) == 5
 
-#if any error occured to this method the rest of function will not excute 
-@pytest.mark.mathing
+   #if any error occured to this method the rest of function will not excute 
 def testsquare():
    num = 7
    assert 7*7 == 49
