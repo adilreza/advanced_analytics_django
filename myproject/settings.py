@@ -25,7 +25,7 @@ SECRET_KEY = 'k_ex2f-960*s(5hu*2(o2c3fn@5xjc39jiik4ii-!051i)i&6f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +40,16 @@ INSTALLED_APPS = [
     'myapp',
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
+    'rest_framework_simplejwt',
+
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
