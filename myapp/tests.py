@@ -12,25 +12,25 @@ class MyModelTestCase(APITestCase):
 
     
     def test_mymodel_tester(self):
-        data = {'data1':"this is new data", "data2":"data"}
+        data = {'data1': "this is new data", "data2": "data"}
         response = self.client.post('/test/api/mymodel/', data)
         
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
     
     def test_get_data(self):
-        myd = {"id":1,"data1":"hasan","data2":"vai"}
+        myd = {"id": 1, "data1": "hasan", "data2": "vai"}
         response = self.client.get('/test/api/mymodel/1/')
         print("--------------")
         get_data = json.loads(response.content)
-        #print(json.loads(response.content))
+        #print(json.loads(response.content))#
         print("--------------")
         self.assertEqual(get_data, myd)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_patch_data(self):
-        myold = {"id":1,"data1":"hasannnnn","data2":"vai"}
-        myd = {"id":1,"data1":"hasannnnn"}
-        response = self.client.patch('/test/api/mymodel/1/',myd)
+        myold = {"id": 1, "data1": "hasannnnn", "data2": "vai"}
+        myd = {"id": 1, "data1": "hasannnnn"}
+        response = self.client.patch('/test/api/mymodel/1/', myd)
         print("--------------")
         get_data = json.loads(response.content)
         print(json.loads(response.content))
