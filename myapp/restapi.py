@@ -24,14 +24,14 @@ class withoutMigrateViewSet(viewsets.ModelViewSet):
     queryset = withoutMigrate.objects.all()
     serializer_class = WithoutMigratSerializer
 
-    def post(self, request, *args, **kwargs):
+    def perform_create(self, request, *args, **kwargs):
         data3 = request.data['data3']
         data4 = request.data['data4']
         data4= data4 + " customized"
         print(data4+data4)
         withoutMigrate.objects.create(data3 = data3, data4 = data4)
-        return super().create(request)
-        # return HttpResponse({'message':"succefully saved"}, status=200)
+        
+        return HttpResponse({'message':"succefully saved"}, status=200)
 
 
 class BookViewSet(viewsets.ModelViewSet):
